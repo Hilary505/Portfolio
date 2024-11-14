@@ -5,11 +5,23 @@
 * HTML & CSS
 
 ## Installation
-To run the portfolio on your machine: git clone git@github.com:Hilary505/Portfolio.git 
+To run the portfolio on your machine: 
+ ```bash
+ git clone git@github.com:Hilary505/Portfolio.git 
+ ```
 
-Navigate to the project directory: ```cd Portfolio ```
+Navigate to the project directory: 
+```bash
+cd Portfolio
+ ```
 
-Navigate to the project directory: ``` npm start ```
+Navigate to the project directory:
+ ```bash
+  npm start 
+ ```
 
 ## Usage
-Navigate to the project directory: ``` node server.js ```
+Navigate to the project directory:
+ ```bash
+  node server.js
+ ```
