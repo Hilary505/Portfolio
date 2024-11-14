@@ -1,0 +1,14 @@
+.loader{
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+  }
+  .loader img {
+    border-radius: 50%; /* Makes sure it's a circle */
+    animation: spin 120s linear infinite; /* 60s animation for 1 minute */
+  }
