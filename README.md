@@ -4,6 +4,9 @@
 * Javascript
 * HTML & CSS
 
+## Demo
+[live Demo](https://portfolio-a441.onrender.com)
+
 ## Installation
 To run the portfolio on your machine: 
  ```bash
