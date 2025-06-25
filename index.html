@@ -875,7 +875,7 @@
             loop: true,            // Enables infinite loop
             margin: 20,            // Margin between items
             autoplay: true,        // Enables autoplay
-            autoplayTimeout: 5000, // Delay between transitions (in ms)
+            //autoplayTimeout: 5000, // Delay between transitions (in ms)
             autoplayHoverPause: true, // Pause on hover
             nav: true,             // Show navigation arrows
             dots: true,            // Show dots for navigation
@@ -1042,34 +1042,6 @@
     
     // Cycle through roles every 4 seconds
     setInterval(cycleRoles, 4000);
-    
-    // Add CSS-based hover effects instead of JavaScript to prevent reloads
-    const style = document.createElement('style');
-    style.textContent = `
-      .caption-header {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: default;
-      }
-      
-      .caption-header:hover {
-        transform: scale(1.02);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      }
-      
-      /* Prevent text selection on hover */
-      .caption-header * {
-        user-select: none;
-        pointer-events: none;
-      }
-      
-      /* Allow interaction with specific elements */
-      .caption-header a,
-      .caption-header button {
-        pointer-events: auto;
-        user-select: text;
-      }
-    `;
-    document.head.appendChild(style);
   });
 
   // Add welcome message based on visit time
@@ -1125,28 +1097,6 @@
       }, 3000);
     }
   });
-
-  // Add CSS animations
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes slideIn {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes slideOut {
-      from { transform: translateX(0); opacity: 1; }
-      to { transform: translateX(100%); opacity: 0; }
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    .caption-header:hover {
-      animation: pulse 2s infinite;
-    }
-  `;
-  document.head.appendChild(style);
 </script>
 </body>
 </html>
