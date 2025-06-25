@@ -81,6 +81,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Serve 404 page directly (for testing)
+app.get('/404', (req, res) => {
+  res.status(404).sendFile(path.join(__dirname, '404.html'));
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
@@ -92,9 +97,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-// 404 handler
+// 404 handler - serve custom 404 page
 app.use((req, res) => {
-  res.status(404).json({ error: 'Page not found' });
+  res.status(404).sendFile(path.join(__dirname, '404.html'));
 });
 
 // Start the server
