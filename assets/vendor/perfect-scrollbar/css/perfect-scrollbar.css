@@ -1,0 +1,45 @@
+/* Perfect Scrollbar CSS */
+.ps {
+  position: relative;
+  overflow: hidden;
+}
+
+.ps__rail-x {
+  position: absolute;
+  bottom: 0;
+  height: 15px;
+  z-index: 1;
+}
+
+.ps__rail-y {
+  position: absolute;
+  right: 0;
+  width: 15px;
+  z-index: 1;
+}
+
+.ps__thumb-x {
+  background-color: #aaa;
+  border-radius: 6px;
+  height: 6px;
+  bottom: 2px;
+  position: absolute;
+}
+
+.ps__thumb-y {
+  background-color: #aaa;
+  border-radius: 6px;
+  width: 6px;
+  right: 2px;
+  position: absolute;
+}
+
+.ps__rail-x:hover,
+.ps__rail-y:hover {
+  background-color: #eee;
+}
+
+.ps__rail-x:hover .ps__thumb-x,
+.ps__rail-y:hover .ps__thumb-y {
+  background-color: #999;
+}

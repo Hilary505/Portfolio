@@ -21,8 +21,10 @@ $(function() {
     // Nice select
     $('.vg-select').niceSelect();
     
-    // Tooltip
-    $('[data-toggle="tooltip"]').tooltip();
+    // Tooltip - check if Bootstrap tooltip is available
+    if (typeof $.fn.tooltip !== 'undefined') {
+      $('[data-toggle="tooltip"]').tooltip();
+    }
     
     // Page animation initialize
     new WOW().init();
