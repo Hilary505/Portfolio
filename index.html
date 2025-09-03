@@ -152,7 +152,6 @@
 <div class="loader" id="load">
   <img src="https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/54356b4f95232ade8d8abc08b3036efd7a99069f" style="height: 200px;width: 200px;">
 </div>  
-  <!-- Back to top button -->
   <div class="btn-back_to_top">
     <span class="ti-arrow-up"></span>
   </div>
@@ -216,7 +215,7 @@
           </ul>
         </div>
       </div>
-    </div> <!-- End Navbar -->
+    </div> 
 
     <!-- Caption header -->
     <div class="caption-header text-center wow zoomInDown">
@@ -227,7 +226,7 @@
         <p class="text-light" id="currentTime"></p>
         <p class="text-light" id="currentDate"></p>
       </div>
-    </div> <!-- End Caption header -->
+    </div> 
     <div class="floating-button"><span class="ti-mouse"></span></div>
   </div>
 
@@ -236,11 +235,6 @@
 
     <div class="container py-5">
       <div class="row">
-        <div class="col-lg-4 py-3">
-          <!-- <div class="img-place wow fadeInUp">
-            <img src="/assets/img/hero.jpg" alt="">
-          </div> -->
-        </div>
         <div class="col-lg-6 offset-lg-1 wow fadeInRight">
           <h1 style="color: brown;" class="fw-light">Who is Hilary?</h1> <br>
           <p class="text-muted">I am an apprentice who loves blending  the artistry of design with the precision of code. As a passionate web developer, my canvas is the virtual realm, where I breathe life into user experiences that resonate with beauty and functionality.</p>
@@ -656,8 +650,7 @@
             <hr class="divider">
             <ul class="list-unstyled">
               <li><a href="https://www.instagram.com/hilary_the_coder/" target="_blank">Instagram</a></li>
-              <li><a href="https://wa.me/+254793928611" target="_blank">WhatsApp</a></li>
-              <li><a href="https://www.linkedin.com/in/omondi-hilary-2503a829a/" target="_blank">linkedin</a></li>
+              <li><a href="https://www.linkedin.com/in/omondi-hilary-2503a829a/" target="_blank">linkedIn</a></li>
               <li><a href="https://github.com/Hilary505" target="_blank">Github</a></li>
             </ul>
           </div>
@@ -724,7 +717,6 @@
   <!-- Initialize Bootstrap tooltips -->
   <script>
     $(document).ready(function() {
-      // Initialize Bootstrap tooltips
       if (typeof $.fn.tooltip !== 'undefined') {
         $('[data-toggle="tooltip"]').tooltip();
       }
@@ -811,7 +803,6 @@
                 animation: google.maps.Animation.DROP
             });
 
-            // Info window
             var infoWindow = new google.maps.InfoWindow({
                 content: `
                     <div style="padding: 10px; max-width: 200px;">
@@ -857,33 +848,30 @@
         setTimeout(function() {
             if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
                 console.log("Google Maps API not loaded, showing fallback");
-                initMap(); // This will trigger the fallback
+                initMap(); 
             }
-        }, 5000); // Wait 5 seconds for API to load
+        }, 5000); 
     });
 </script>
-<!--Email Js-->
+
 <script>
   $(document).ready(function(){
-    // Wait a bit for all resources to load
     setTimeout(function() {
-      // Initialize Owl Carousel with error handling
       try {
         if (typeof $.fn.owlCarousel !== 'undefined') {
           $(".owl-carousel").owlCarousel({
-            items: 1,              // Number of items to show at a time
-            loop: true,            // Enables infinite loop
-            margin: 20,            // Margin between items
-            autoplay: true,        // Enables autoplay
-            //autoplayTimeout: 5000, // Delay between transitions (in ms)
-            autoplayHoverPause: true, // Pause on hover
-            nav: true,             // Show navigation arrows
-            dots: true,            // Show dots for navigation
+            items: 1,              
+            loop: true,            
+            margin: 20,            
+            autoplay: true,      
+            autoplayHoverPause: true, 
+            nav: true,             
+            dots: true,          
             navText: ['<i class="ti-arrow-left"></i>', '<i class="ti-arrow-right"></i>'], // Custom nav arrows
             responsive: {
               0: { 
                 items: 1,
-                nav: false // Hide nav on mobile
+                nav: false 
               },
               768: { 
                 items: 1,
@@ -899,27 +887,21 @@
           });
         } else {
           console.error('Owl Carousel plugin not found. Please check if the script is loaded correctly.');
-          // Fallback: Show testimonials without carousel
           $(".owl-carousel").show();
         }
       } catch (error) {
         console.error('Error initializing Owl Carousel:', error);
-        // Fallback: Show testimonials without carousel
         $(".owl-carousel").show();
       }
-    }, 500); // Wait 500ms for resources to load
+    }, 500);
   });
 </script>
 
 <script>
   const btn = document.getElementById("btn").addEventListener("click", function (e) {
-
-      
       (function(){
           emailjs.init("kuMtsRqMku0V5E3nr")
       })();
-
-
       var params = {
           sender: document.querySelector("#name").value,
           number: document.querySelector("#subject").value,
@@ -944,7 +926,6 @@
 
 <!-- Live Welcome JavaScript -->
 <script>
-  // Time-based greeting functionality
   function updateGreeting() {
     const now = new Date();
     const hour = now.getHours();
@@ -1025,7 +1006,6 @@
 
   // Initialize live welcome functionality
   document.addEventListener('DOMContentLoaded', function() {
-    // Initial updates
     updateGreeting();
     updateDateTime();
     
@@ -1034,12 +1014,8 @@
       cycleRoles();
     }, 1000);
     
-    // Update time every second
     setInterval(updateDateTime, 1000);
-    
-    // Update greeting every minute
-    //setInterval(updateGreeting, 60000);
-    
+
     // Cycle through roles every 4 seconds
     setInterval(cycleRoles, 4000);
   });
