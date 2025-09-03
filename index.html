@@ -924,78 +924,76 @@
     greetingElement.textContent = greeting;
   }
 
-  // Typing animation for the badge
-  function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-      if (i < text.length) {
-        element.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, speed);
-      }
+// Typing animation for the badge
+function typeWriter(element, text, speed = 100, callback) {
+  let i = 0;
+  element.innerHTML = '';
+
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    } else if (callback) {
+      setTimeout(callback, 1500);
     }
-    type();
   }
+  type();
+}
 
-  // Update current time and date
-  function updateDateTime() {
-    const now = new Date();
-    const timeElement = document.getElementById('currentTime');
-    const dateElement = document.getElementById('currentDate');
-    
-    // Format time
-    const timeString = now.toLocaleTimeString('en-US', {
-      hour12: true,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-    
-    // Format date
-    const dateString = now.toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  }
-
-  // Array of different roles/titles to cycle through
-  const roles = [
-    'Full-Stack Developer',
-    'FrontEnd Developer',
-    'Backend Engineer',
-    'AI/ML enthusiast',
-  ];
-
-  let currentRoleIndex = 0;
-
-  // Cycle through different roles
-  function cycleRoles() {
-    const typingElement = document.getElementById('typingText');
-    typeWriter(typingElement, roles[currentRoleIndex], 80);
-    currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-  }
-
-  // Initialize live welcome functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    updateGreeting();
-    updateDateTime();
-    
-    // Start typing animation
-    setTimeout(() => {
-      cycleRoles();
-    }, 1000);
-    
-    setInterval(updateDateTime, 1000);
-
-    // Cycle through roles every 4 seconds
-    setInterval(cycleRoles, 4000);
+// Update current time and date
+function updateDateTime() {
+  const now = new Date();
+  const timeElement = document.getElementById('currentTime');
+  const dateElement = document.getElementById('currentDate');
+  
+  const timeString = now.toLocaleTimeString('en-US', {
+    hour12: true,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+  
+  const dateString = now.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
   });
 
-  // Add welcome message based on visit time
+  if (timeElement) timeElement.textContent = timeString;
+  if (dateElement) dateElement.textContent = dateString;
+}
+
+// Array of different roles/titles to cycle through
+const roles = [
+  'Full-Stack Developer',
+  'FrontEnd Developer',
+  'Backend Engineer',
+  'AI/ML enthusiast',
+];
+
+let currentRoleIndex = 0;
+function cycleRoles() {
+  const typingElement = document.getElementById('typingText');
+  typeWriter(typingElement, roles[currentRoleIndex], 80, () => {
+    currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+    cycleRoles(); // loop continuously
+  });
+}
+
+// Initialize live welcome functionality
+document.addEventListener('DOMContentLoaded', function() {
+  updateGreeting();
+  updateDateTime();
+
+  setTimeout(() => {
+    cycleRoles();
+  }, 1000);
+  
+  setInterval(updateDateTime, 1000);
+});
+
   function getWelcomeMessage() {
     const now = new Date();
     const hour = now.getHours();
