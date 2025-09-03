@@ -4,7 +4,6 @@
 * Javascript
 * HTML & CSS
 
-## Demo
 ## Installation
 To run the portfolio on your machine: 
  ```bash
